@@ -1,26 +1,40 @@
 body {
-    font-size: 20px !important;
+    font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
+    background-color: lightgray;
 }
+h3 {
+    font-size: 20px;
+    font-weight: bold;
+}
+p {
+    text-align: left;
+    font-size: 15px;
+}
+.blogs{
+    align-items: center;
+  }
 .detail{
     text-align: center;
 }
 
+.post-time{
+    font-size: 12px;
+}
 .blog-container{
-    padding-top: 30px;
-    width: 90vw;
+    margin: 0 auto;
+    margin-top: 50px;
+    width:calc(60vw);
+    padding: 30px;
     height: 100%;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+    background-color: white;
   }
 
 .blog-item{
-    width: 50%;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    text-align: center;
+    text-align: left;
 }
 
 

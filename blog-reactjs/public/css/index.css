@@ -1,5 +1,6 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
+  background-color: lightgray;
 }
 .blogs{
   text-align: center;
@@ -9,29 +10,23 @@ h2{
 }
 
 .blog-container{
-  padding-top: 30px;
-  width: 90vw;
+  width:calc(60vw);
+  padding: 30px;
   height: 100%;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .blog-list{
-  text-align: center;
-  width: 100%;
+  text-align: left;
   display: grid;
   align-items: center;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 10%;
+
 }
 
 .blog-item{
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);;
-  border-radius: 20px;
-  height: 100%;
-  width: 100%;
-  height: 100%;
+  padding-left: 30px;
+  margin-top: 30px;
+  border-radius: 5px;
+  background-color: white;
   text-decoration: none;
 }
 

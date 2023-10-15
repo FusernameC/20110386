@@ -37,10 +37,9 @@ function PostList() {
         const params = {
             title: data.title,
             body: data.body,
-            author: data.author,
         }
 
-        axios.post("/api/add-post", params).then((res) => {
+        axios.post("/api/submit", params).then((res) => {
             setPosts([...posts, res.data])
             setOpen(false)
         })
@@ -58,7 +57,7 @@ function PostList() {
             <link rel="stylesheet" href="/css/index.css" />
             <link rel="stylesheet" href="/css/modal.css" />
             <div className="blogs">
-                <h2>My Blogs</h2>
+                <h2>Blogger</h2>
                 <div className="btn-group">
                     <button variant="outlined" onClick={handleClickOpen}>
                         Create new post
@@ -117,25 +116,6 @@ function PostList() {
                                             )}
                                         />
                                     </div >
-                                    <div className="form-group">
-                                        <p>Author</p>
-                                        <Controller
-                                            name="author"
-                                            control={control}
-                                            defaultValue={""}
-                                            render={({ field }) => (
-                                                <input
-                                                    type="text"
-                                                    name="author"
-                                                    {...register("author", {
-                                                        required: true,
-                                                        validate: (value) => value !== "" && !value?.includes(" ")
-                                                    })}
-                                                    required
-                                                    {...field} />
-                                            )}
-                                        />
-                                    </div>
                                 </div>
                             </DialogContent>
                             <DialogActions>
@@ -149,9 +129,7 @@ function PostList() {
                             {posts?.length > 0 && posts.map((item, index) =>
                                 < div className="blog-item" key={index}>
                                     <a style={{ textDecoration: "none", color: "black" }} href={`/${item.id}`}>
-                                        <img src={item.image} />
                                         <h3>{item.title}</h3>
-                                        <h4>Author: {item.author}</h4>
                                     </a>
                                 </div>)
                             }

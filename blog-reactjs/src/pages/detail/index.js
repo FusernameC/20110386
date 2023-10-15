@@ -66,7 +66,6 @@ function App() {
         const params = {
             title: data.title,
             body: data.body,
-            author: data.author,
         }
 
         axios.post(`/api/${id}?method=edit`, params).then((res) => {
@@ -90,7 +89,7 @@ function App() {
             <link rel="stylesheet" href="/css/comment.css" />
             <link rel="stylesheet" href="/css/modal.css" />
             <div className="detail">
-                <h2>Welcome to my blog</h2>
+                <h2>Blogger</h2>
                 <div className="btn-group">
                     <button className="btn-edit" onClick={handleClickOpen}>Edit</button>
                     <BootstrapDialog open={open} onClose={handleClose} aria-labelledby="customized-dialog-title">
@@ -150,25 +149,6 @@ function App() {
                                             )}
                                         />
                                     </div>
-                                    <div className="form-group">
-                                        <p>Author</p>
-                                        <Controller
-                                            id="author"
-                                            name="author"
-                                            control={control}
-                                            defaultValue={detail?.author}
-                                            render={({ field }) => (
-                                                <input
-                                                    type="text"
-                                                    name="author"
-                                                    {...register("author", {
-                                                        required: true,
-                                                        validate: (value) => value !== ""
-                                                    })}
-                                                    {...field} />
-                                            )}
-                                        />
-                                    </div>
                                 </div>
                             </DialogContent>
                             <DialogActions>
@@ -182,9 +162,8 @@ function App() {
                 <div className="blog-container">
                     <div className="blog-item">
                         <h3>{detail?.title}</h3>
-                        <img src={detail?.image} />
                         <p>{detail?.body}</p>
-                        <h4 style={{ textAlign: "right" }}>Author: {detail?.author} ({detail?.createdAt})</h4>
+                        <h4 style={{ textAlign: "right" }}> ({detail?.createdAt})</h4>
                     </div>
                     <div className="comment">
                         <h3 style={{ textAlign: "left" }}>Comments</h3>
@@ -210,7 +189,6 @@ function App() {
                             {comments?.length > 0 && comments.map((item, index) =>
                                 <div className="comment-item" key={index}>
                                     <div className="comment-header">
-                                        <div className="comment-author">{item.author}</div>
                                         <div className="comment-time">{item.createdAt}</div>
                                     </div>
                                     <p>{item.body}</p>
