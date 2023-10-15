@@ -1,0 +1,17 @@
+.comment{
+    text-align: left;
+}
+
+.comment-header{
+    display: flex;
+    gap: 20px;
+}
+
+.comment-time{
+    font-size: 20px;
+    margin-top: 4px;
+}
+
+.comment-list{
+    margin-top: 20px;
+}
